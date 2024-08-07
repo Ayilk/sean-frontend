@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { People } from '../../interfaces/people';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 const listPeople: People[] = [
   {
@@ -14,7 +15,7 @@ const listPeople: People[] = [
   },
   {
     name: "Miguel", 
-    lastname: "Perez", 
+    lastname: "Luna", 
     email: "Miguel@gmail.com", 
     kindDocument: "DNI", 
     document: 12245, 
@@ -22,7 +23,7 @@ const listPeople: People[] = [
   },
   {
     name: "Laura", 
-    lastname: "Perez", 
+    lastname: "Altamirano", 
     email: "Laura@gmail.com", 
     kindDocument: "DNI", 
     document: 12325, 
@@ -30,7 +31,7 @@ const listPeople: People[] = [
   },
   {
     name: "Ramón", 
-    lastname: "Perez", 
+    lastname: "Jimenez", 
     email: "Ramón@gmail.com", 
     kindDocument: "DNI", 
     document: 12342, 
@@ -38,7 +39,7 @@ const listPeople: People[] = [
   },
   {
     name: "Sarahi", 
-    lastname: "Perez", 
+    lastname: "Rodriguez", 
     email: "Sarahi@gmail.com", 
     kindDocument: "DNI", 
     document: 22345, 
@@ -46,7 +47,7 @@ const listPeople: People[] = [
   },
   {
     name: "Joaquín", 
-    lastname: "Perez", 
+    lastname: "Sandoval", 
     email: "Joaquín@gmail.com", 
     kindDocument: "DNI", 
     document: 13345, 
@@ -54,7 +55,7 @@ const listPeople: People[] = [
   },
   {
     name: "Antonia", 
-    lastname: "Perez", 
+    lastname: "García", 
     email: "Antonia@gmail.com", 
     kindDocument: "DNI", 
     document: 12335, 
@@ -62,7 +63,7 @@ const listPeople: People[] = [
   },
   {
     name: "Manuel", 
-    lastname: "Perez", 
+    lastname: "Benitez", 
     email: "Manuel@gmail.com", 
     kindDocument: "DNI", 
     document: 12343, 
@@ -70,7 +71,7 @@ const listPeople: People[] = [
   },
   {
     name: "Octavio", 
-    lastname: "Perez", 
+    lastname: "Sánchez", 
     email: "Octavio@gmail.com", 
     kindDocument: "DNI", 
     document: 42345, 
@@ -78,7 +79,7 @@ const listPeople: People[] = [
   },
   {
     name: "Tomas", 
-    lastname: "Perez", 
+    lastname: "Gutierrez", 
     email: "tomas@gmail.com", 
     kindDocument: "DNI", 
     document: 12345, 
@@ -119,6 +120,8 @@ export class ListPeopleComponent implements AfterViewInit {
   //Colocamos el signo de admiarción por que se queja de que no está inicializado
   //No lo estamos inicializando en el constructor
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
 
   constructor(){
     this.dataSource = new MatTableDataSource(listPeople);
@@ -128,7 +131,8 @@ export class ListPeopleComponent implements AfterViewInit {
     //Para poder acceder al componente paginator el componente del viewchild ya debe estar renderizado
     //Por eso lo colocamos en el componente ngAfterViewInit
     this.dataSource.paginator = this.paginator;
-    this.dataSource.paginator._intl.itemsPerPageLabel = "Personas por página"
+    this.dataSource.paginator._intl.itemsPerPageLabel = "Personas por página";
+    this.dataSource.sort = this.sort;
   }
  
 

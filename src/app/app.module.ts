@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatTableModule} from '@angular/material/table'; 
 import {MatCardModule} from '@angular/material/card';  
+import {MatSortModule} from '@angular/material/sort'; 
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatTableModule,
     MatCardModule,
+    MatSortModule
   ],
   providers: [
     provideAnimationsAsync()
