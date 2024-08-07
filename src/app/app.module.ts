@@ -9,8 +9,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 //Angular Material
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {MatPaginatorModule} from '@angular/material/paginator'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatInputModule} from '@angular/material/input'; 
 import {MatTableModule} from '@angular/material/table'; 
 import {MatCardModule} from '@angular/material/card';  
 import {MatSortModule} from '@angular/material/sort'; 
@@ -26,10 +28,12 @@ import {MatSortModule} from '@angular/material/sort';
     AppRoutingModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatFormFieldModule,
     MatToolbarModule,
+    MatInputModule,
     MatTableModule,
+    MatSortModule,
     MatCardModule,
-    MatSortModule
   ],
   providers: [
     provideAnimationsAsync()

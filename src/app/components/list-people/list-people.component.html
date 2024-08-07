@@ -3,6 +3,11 @@
 </mat-toolbar>
 
 <mat-card>
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Tomas" #input>
+  </mat-form-field>
+
   <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
