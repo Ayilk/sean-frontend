@@ -9,9 +9,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 //Angular Material
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatPaginatorModule} from '@angular/material/paginator'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatTableModule} from '@angular/material/table'; 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';  
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     MatSlideToggleModule,
+    MatPaginatorModule,
     MatToolbarModule,
+    MatTableModule,
     MatCardModule,
-    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()

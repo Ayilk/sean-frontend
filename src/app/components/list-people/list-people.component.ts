@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { People } from '../../interfaces/people';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 const listPeople: People[] = [
   {
@@ -8,14 +10,126 @@ const listPeople: People[] = [
     email: "tomas@gmail.com", 
     kindDocument: "DNI", 
     document: 12345, 
-    birthdayDate: new Date() }
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Miguel", 
+    lastname: "Perez", 
+    email: "Miguel@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12245, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Laura", 
+    lastname: "Perez", 
+    email: "Laura@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12325, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Ramón", 
+    lastname: "Perez", 
+    email: "Ramón@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12342, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Sarahi", 
+    lastname: "Perez", 
+    email: "Sarahi@gmail.com", 
+    kindDocument: "DNI", 
+    document: 22345, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Joaquín", 
+    lastname: "Perez", 
+    email: "Joaquín@gmail.com", 
+    kindDocument: "DNI", 
+    document: 13345, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Antonia", 
+    lastname: "Perez", 
+    email: "Antonia@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12335, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Manuel", 
+    lastname: "Perez", 
+    email: "Manuel@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12343, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Octavio", 
+    lastname: "Perez", 
+    email: "Octavio@gmail.com", 
+    kindDocument: "DNI", 
+    document: 42345, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Tomas", 
+    lastname: "Perez", 
+    email: "tomas@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12345, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Tomas", 
+    lastname: "Perez", 
+    email: "tomas@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12345, 
+    birthdayDate: new Date() 
+  },
+  {
+    name: "Tomas", 
+    lastname: "Perez", 
+    email: "tomas@gmail.com", 
+    kindDocument: "DNI", 
+    document: 12345, 
+    birthdayDate: new Date() 
+  }
+  
+
 ];
+
 @Component({
   selector: 'app-list-people',
   templateUrl: './list-people.component.html',
   styleUrl: './list-people.component.css'
 })
-export class ListPeopleComponent {
+export class ListPeopleComponent implements AfterViewInit {
   displayedColumns: string[] = ["name", "lastname", "email", "kindDocument", "document", "birthdayDate"];
-  dataSource = listPeople;
+  //Esta propiedad la inicializamos en el constructor
+  dataSource : MatTableDataSource<People>;
+
+  //Lo primero que hacermos para colocar el paginador es colocar el viewchild
+  //Importamos VIewChild y MatPaginator
+  //Colocamos el signo de admiarción por que se queja de que no está inicializado
+  //No lo estamos inicializando en el constructor
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(){
+    this.dataSource = new MatTableDataSource(listPeople);
+  }
+  
+  ngAfterViewInit(): void {
+    //Para poder acceder al componente paginator el componente del viewchild ya debe estar renderizado
+    //Por eso lo colocamos en el componente ngAfterViewInit
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator._intl.itemsPerPageLabel = "Personas por página"
+  }
+ 
+
 }
