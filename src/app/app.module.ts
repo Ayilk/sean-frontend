@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListPeopleComponent } from './components/list-people/list-people.component';
 import { AddEditPeopleComponent } from './components/add-edit-people/add-edit-people.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+//Angular Material
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -14,9 +18,12 @@ import { AddEditPeopleComponent } from './components/add-edit-people/add-edit-pe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatSlideToggleModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
