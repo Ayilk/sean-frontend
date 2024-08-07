@@ -9,6 +9,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 //Angular Material
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatTableModule} from '@angular/material/table'; 
+import {MatCardModule} from '@angular/material/card'; 
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     BrowserModule,
     AppRoutingModule,
     MatSlideToggleModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -7,3 +7,4 @@ export interface People {
     document: number,
     birthdayDate: Date,
 }
+
