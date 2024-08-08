@@ -1,72 +1,76 @@
 <h2 mat-dialog-title>Agregar Persona</h2>
-<mat-dialog-content class="mat-typography">
-    <div class="row">
 
-        <div class="column">
-            <p>
-              <mat-form-field appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Ingrese el nombre" />
-              </mat-form-field>
-            </p>
+<form [formGroup]="form" (ngSubmit)="addEditPeople()"> 
+    <mat-dialog-content class="mat-typography">
+        <div class="row">
+    
+            <div class="column">
+                <p>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="nombre" matInput placeholder="Ingrese el nombre" />
+                  </mat-form-field>
+                </p>
+            </div>
+    
+            <div class="column">
+                <p>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Apellido</mat-label>
+                    <input formControlName="apellido" matInput placeholder="Ingrese el apellido" />
+                  </mat-form-field>
+                </p>
+            </div>
+    
         </div>
-
-        <div class="column">
-            <p>
-              <mat-form-field appearance="fill">
-                <mat-label>Apellido</mat-label>
-                <input matInput placeholder="Ingrese el apellido" />
-              </mat-form-field>
-            </p>
+    
+        <div class="row">
+            <div class="column">
+                <p>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Coreo electrónico</mat-label>
+                      <input formControlName="email" matInput placeholder="Ingrese correo" />
+                    </mat-form-field>
+                  </p>
+            </div>
         </div>
-
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <p>
+    
+        <div class="row">
+            <div class="column">
                 <mat-form-field appearance="fill">
-                  <mat-label>Coreo electrónico</mat-label>
-                  <input matInput placeholder="Ingrese correo" />
+                    <mat-label>Seleccione el tipo de docuemtno</mat-label>
+                    <mat-select formControlName="tipoDocumento">
+                      @for (item of tipoDocumento; track item) {
+                        <mat-option [value]="item">{{item}}</mat-option>
+                      }
+                    </mat-select>
                 </mat-form-field>
-              </p>
+            </div>
+    
+            <div class="column">
+                <p>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Documento</mat-label>
+                      <input formControlName="docuemtno" matInput placeholder="Ingrese documento" />
+                    </mat-form-field>
+                  </p>
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <mat-form-field appearance="fill">
-                <mat-label>Seleccione el tipo de docuemtno</mat-label>
-                <mat-select>
-                  @for (item of tipoDocumento; track item) {
-                    <mat-option [value]="item">{{item}}</mat-option>
-                  }
-                </mat-select>
-            </mat-form-field>
-        </div>
-
-        <div class="column">
-            <p>
+    
+        <div class="row">
+            <div class="column">
                 <mat-form-field appearance="fill">
-                  <mat-label>Documento</mat-label>
-                  <input matInput placeholder="Ingrese documento" />
+                    <mat-label>Seleccione la fecha de nacimiento</mat-label>
+                    <input formControlName="fechaNacimiento" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
                 </mat-form-field>
-              </p>
+            </div>
         </div>
-    </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button type="button" (click)="cancelar()" mat-button mat-dialog-close>Cancelar</button>
+      <button type="submit" mat-button cdkFocusInitial>Aceptar</button>
+    </mat-dialog-actions>
 
-    <div class="row">
-        <div class="column">
-            <mat-form-field appearance="fill">
-                <mat-label>Seleccione la fecha de nacimiento</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button (click)="cancelar()" mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button cdkFocusInitial>Aceptar</button>
-</mat-dialog-actions>
+</form>

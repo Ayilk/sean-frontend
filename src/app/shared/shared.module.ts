@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';  
 import { MatSortModule } from '@angular/material/sort'; 
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    ReactiveFormsModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatTooltipModule,
@@ -43,6 +45,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSlideToggleModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    ReactiveFormsModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatTooltipModule,
