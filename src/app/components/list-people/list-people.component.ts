@@ -3,6 +3,8 @@ import { People } from '../../interfaces/people';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { AddEditPeopleComponent } from '../add-edit-people/add-edit-people.component';
 
 const listPeople: People[] = [
   {
@@ -123,7 +125,7 @@ export class ListPeopleComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(){
+  constructor(public dialog: MatDialog){
     this.dataSource = new MatTableDataSource(listPeople);
   }
   
@@ -143,6 +145,12 @@ export class ListPeopleComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  addEditPeople():void {
+    const dialogRef = this.dialog.open(AddEditPeopleComponent, {
+      width: '550px',
+  })
+}
 
 
 }
