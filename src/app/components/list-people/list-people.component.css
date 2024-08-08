@@ -1,3 +1,28 @@
 table {
     width: 100%;
   }
+
+
+
+  .mat-form-field {
+    font-size: 14px;
+    /* width: 90%; */
+  }
+
+
+.btn-delete, .btn-edit {
+  cursor: pointer;
+}
+
+.btn-delete {
+  color: #db0d45;
+}
+
+.btn-edit {
+  color: #0d77db;
+}
+
+.btn-add {
+  display: table-cell;
+  align-self:flex-end;
+}

@@ -6,16 +6,9 @@ import { AppComponent } from './app.component';
 import { ListPeopleComponent } from './components/list-people/list-people.component';
 import { AddEditPeopleComponent } from './components/add-edit-people/add-edit-people.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { SharedModule } from './shared/shared.module';
 
-//Angular Material
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import {MatPaginatorModule} from '@angular/material/paginator'; 
-import {MatToolbarModule} from '@angular/material/toolbar'; 
-import {MatInputModule} from '@angular/material/input'; 
-import {MatTableModule} from '@angular/material/table'; 
-import {MatCardModule} from '@angular/material/card';  
-import {MatSortModule} from '@angular/material/sort'; 
+
 
 @NgModule({
   declarations: [
@@ -26,14 +19,7 @@ import {MatSortModule} from '@angular/material/sort';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSlideToggleModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatTableModule,
-    MatSortModule,
-    MatCardModule,
+    SharedModule
   ],
   providers: [
     provideAnimationsAsync()

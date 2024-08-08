@@ -111,7 +111,7 @@ const listPeople: People[] = [
   styleUrl: './list-people.component.css'
 })
 export class ListPeopleComponent implements AfterViewInit {
-  displayedColumns: string[] = ["name", "lastname", "email", "kindDocument", "document", "birthdayDate"];
+  displayedColumns: string[] = ["name", "lastname", "email", "kindDocument", "document", "birthdayDate", "accions"];
   //Esta propiedad la inicializamos en el constructor
   dataSource : MatTableDataSource<People>;
 
