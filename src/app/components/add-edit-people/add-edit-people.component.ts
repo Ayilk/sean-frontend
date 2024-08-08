@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { People } from '../../interfaces/people';
 
@@ -12,16 +12,18 @@ export class AddEditPeopleComponent {
 
   tipoDocumento: string[] = ['DNI', 'INE', 'PASAPORTE'];
   form: FormGroup;
+  maxDate: Date;
 
     constructor(public dialogRef: MatDialogRef<AddEditPeopleComponent>,
       private fb: FormBuilder){
+        this.maxDate = new Date();
         this.form = this.fb.group({
-          nombre: [''],
-          apellido: [''],
-          email: [''],
-          tipoDocumento: [null],
-          documento: [null],
-          fechaNacimiento: [null],
+          nombre: ['', [Validators.required, Validators.maxLength(20)]],
+          apellido: ['', Validators.required],
+          email: ['', [Validators.required, Validators.email]],
+          tipoDocumento: [null, Validators.required],
+          documento: [null, [Validators.required, Validators.pattern("^[0-9]*$")]],
+          fechaNacimiento: [null, Validators.required],
         })
     }
 
